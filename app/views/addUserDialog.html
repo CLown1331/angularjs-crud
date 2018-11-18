@@ -1,0 +1,33 @@
+<md-dialog aria-label="List dialog">
+    <md-dialog-content>
+        <md-toolbar>
+            <h3> Add User </h3>
+        </md-toolbar>
+        <form name="dialog.form" ng-submit="dialog.submit()" layout="column">
+            <div class="md-padding">
+                <md-input-container>
+                    <label for="dialog.user.userName"> User Name </label>
+                    <input type="text" ng-model="dialog.user.userName" required>
+                </md-input-container>
+            </div>
+            <div layout="row" class="md-padding">
+            <md-input-container>
+                <label for="dialog.user.userAge"> Age </label>
+                <input type="number" ng-model="dialog.user.userAge" required>
+            </md-input-container>
+            <md-input-container>
+                    <label for="dialog.user.userEmail"> Email </label>
+                    <input type="email" ng-model="dialog.user.userEmail" required>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container style="margin: auto">
+                    <md-button type="submit" class="md-primary md-raised"> Submit </md-button>
+                </md-input-container>
+            </div>
+        </form>
+    </md-dialog-content>
+    <md-dialog-actions class="md-padding">
+        <md-button ng-click="dialog.closeDialog()" class="md-primary md-raised" flex>Close Dialog</md-button>
+    </md-dialog-actions>
+    </md-dialog>
