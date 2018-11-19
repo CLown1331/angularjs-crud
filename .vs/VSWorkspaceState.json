@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\controllers"
+    "\\app\\controllers",
+    "\\app\\services",
+    "\\app\\views"
   ],
-  "SelectedNode": "\\app\\controllers\\..txt",
+  "SelectedNode": "\\app\\controllers\\UserController.js",
   "PreviewInSolutionExplorer": false
 }

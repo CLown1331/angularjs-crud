@@ -3,7 +3,7 @@
 
     angular.module('app').controller('EditController', EditController);
 
-    function EditController($scope, $state, $stateParams, UserService, $timeout, $q, $log)) {
+    function EditController($scope, $state, $stateParams, UserService, $timeout, $q, $log) {
         
         $scope.users                = null;
         $scope.submitData           = submitData;
