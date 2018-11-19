@@ -15,16 +15,14 @@
 
         $scope.labels = [];
 
-        $scope.datasetOverride = [
-            {
-                borderWidth: 1,
-                type: 'line',
-                lineTension: 0,
-            },
-        ];
-
         $scope.options = {
             scales: {
+                xAxes: [{
+                    type: 'time',
+                    time: {
+                        unit: 'month'
+                    }
+                }],
                 yAxes: [
                     {
                         id: 'y-axis',
@@ -33,6 +31,19 @@
                         position: 'left'
                     }
                 ]
+            },
+            elements: { 
+                line: { 
+                    tension : 0,
+                    fill: false,
+                    borderColor: '#3f51b5',
+                },
+                point: {
+                    backgroundColor: '#3f51b5',
+                    borderColor: '#3f51b5',
+                    borderWidth: 4,
+                    pointStyle: 'circle',
+                }
             }
           };
 
@@ -75,12 +86,13 @@
             $scope.selected = user;
             $scope.selectedIndex = index;
             $scope.data = [];
-            $scope.labels.length = user.ratingChanges.length;
+            $scope.labels = [];
             for (let value of user.ratingChanges) {
                 $scope.data.push({
-                    x: value.ratingUpdateTimeSeconds,
+                    x: new Date(value.ratingUpdateTimeSeconds * 1000),
                     y: value.newRating,
                 });
+                $scope.labels.push(value.ratingUpdateTimeSeconds * 1000);
             }
         }
 
