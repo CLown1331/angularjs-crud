@@ -1,0 +1,40 @@
+<div>
+    <md-toolbar layout="row">
+        <md-button class="menu" ng-click="showSideNav()">
+            <md-icon md-svg-icon="assets/svg/menu.svg"></md-icon>
+        </md-button>
+        <md-button class="md-primary md-raised md-padding" ui-sref="create">
+            Add User
+        </md-button>
+        <h3> Angular Starter </h3>
+    </md-toolbar>
+    <div class="container" layout="row" flex>
+        <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-7dp" md-component-id="left" flex>
+            <md-list>
+                <md-list-item ng-repeat="u in users track by $index">
+                    <md-button layout="row" ng-click="selectUser(u, $index)">
+                        <img src="{{u.result.avatar}}" class="md-card-image" alt="image caption">
+                        <span class="name"> {{u.userName}} </span>
+                    </md-button>
+                </md-list-item>
+            </md-list>
+        </md-sidenav>
+        <md-content id="content" flex> 
+            <md-card ng-if="selected">
+                <img src="{{selected.result.titlePhoto}}" class="md-card-image" alt="image caption">
+                <md-card-content>
+                    <h2> {{selected.result.firstName + " " + selected.result.lastName}}</h2>
+                    <p>
+                        Username: {{selected.result.handle}}
+                        Rating: {{selected.result.rating}}
+                        Max Rating: {{selected.result.maxRating}}
+                        Rank: {{selected.result.rank}}
+                    </p>
+                    <!-- <md-button class="md-primary md-raised" ui-sref="edit" ui-sref-opts="{id: selectedIndex}"> Edit </md-button> -->
+                    <md-button class="md-primary md-raised" href='/edit/{{selectedIndex}}'> Edit </md-button>
+                    <md-button class="md-warn md-raised" ng-click="deleteUser()"> Delete </md-button>
+                </md-card-content>
+            </md-card>
+        </md-content>
+    </div>
+</div>

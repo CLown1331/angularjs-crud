@@ -3,51 +3,20 @@
         <title> Angularjs Material </title>
         <link rel="stylesheet" href="app/libs/angular-material/angular-material.min.css">
         <link rel="stylesheet" href="styles/app.css">
+        <base href="/">
     </head>
-    <body ng-app="app" layout="column" ng-controller="UserController as uc">
-        <md-toolbar layout="row">
-            <md-button class="menu" ng-click="uc.showSideNav()">
-                <md-icon md-svg-icon="assets/svg/menu.svg"></md-icon>
-            </md-button>
-            <md-button class="md-primary md-raised md-padding" ng-click="uc.addUser()">
-                Add User
-            </md-button>
-            <h3> Angular Starter </h3>
-        </md-toolbar>
-        <div class="container" layout="row" flex>
-            <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-7dp" md-component-id="left">
-                <md-list>
-                    <md-list-item ng-repeat="u in uc.users track by $index">
-                        <md-button layout="row" ng-click="uc.selectUser(u, $index)">
-                            <img src="{{u.result.avatar}}" class="md-card-image" alt="image caption">
-                            <span class="name"> {{u.userName}} </span>
-                        </md-button>
-                    </md-list-item>
-                </md-list>
-            </md-sidenav>
-            <md-content id="content" flex> 
-                <md-card ng-if="uc.selected">
-                    <img src="{{uc.selected.result.titlePhoto}}" class="md-card-image" alt="image caption">
-                    <md-card-content>
-                        <h2> {{uc.selected.result.firstName + " " + uc.selected.result.lastName}}</h2>
-                        <p>
-                            Username: {{uc.selected.result.handle}}
-                            Rating: {{uc.selected.result.rating}}
-                            Max Rating: {{uc.selected.result.maxRating}}
-                            Rank: {{uc.selected.result.rank}}
-                        </p>
-                        <md-button class="md-primary md-raised" ng-click="uc.editUser()"> Edit </md-button>
-                        <md-button class="md-warn md-raised" ng-click="uc.deleteUser()"> Delete </md-button>
-                    </md-card-content>
-                </md-card>
-            </md-content>
-        </div>
+    <body ng-app="app">
+        <ui-view></ui-view>
         <script src="app/libs/angular/angular.min.js"></script>
         <script src="app/libs/angular-animate/angular-animate.min.js"></script>
         <script src="app/libs/angular-aria/angular-aria.min.js"></script>
         <script src="app/libs/angular-material/angular-material.min.js"></script>
+        
+        <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
         <script src="app/app.js"></script>
         <script src="app/controllers/UserController.js"></script>
+        <script src="app/controllers/CreateController.js"></script>
+        <script src="app/controllers/EditController.js"></script>
         <script src="app/services/UserService.js"></script>
     </body>
 </html>

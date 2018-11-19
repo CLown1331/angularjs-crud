@@ -1,0 +1,33 @@
+<div>
+    <md-toolbar>
+        <h3> Add User </h3>
+    </md-toolbar>
+    <form name="form" ng-submit="submitData()" layout="column">
+        <div style="margin: auto">
+            <div class="md-padding">
+                <md-input-container>
+                    <label for="user.userName"> User Name </label>
+                    <input type="text" ng-model="user.userName" required>
+                </md-input-container>
+            </div>
+            <div layout="row" class="md-padding">
+            <md-input-container>
+                <label for="user.userAge"> Age </label>
+                <input type="number" ng-model="user.userAge" required>
+            </md-input-container>
+            <md-input-container>
+                    <label for="user.userEmail"> Email </label>
+                    <input type="email" ng-model="user.userEmail" required>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container style="margin: auto">
+                    <md-button type="submit" class="md-primary md-raised" ng-click="submitData()"> Submit </md-button>
+                </md-input-container>
+                <md-input-container style="margin: auto">
+                    <md-button class="md-primary md-raised" ui-sref="home"> Cancel </md-button>
+                </md-input-container>
+            </div>
+        </div>
+    </form>
+</div>
