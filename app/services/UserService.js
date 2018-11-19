@@ -26,6 +26,17 @@
                 );
               });
         };
+        obj.GetRatingChangeFromCF = function(user) {
+            return $q(function(resolve, reject) {
+                $http.get("https://codeforces.com/api/user.rating?handle="+user.userName).then(
+                    function(response) {
+                        resolve(response.data.result);
+                    }, function() {
+                        reject();
+                    }
+                );
+              });
+        };
         return obj;
     }]);
 

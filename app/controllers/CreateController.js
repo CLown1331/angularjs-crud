@@ -25,6 +25,13 @@
 
                 }
             );
+            UserService.GetRatingChangeFromCF($scope.user).then(
+                function(result) {
+                    $scope.user.ratingChanges = result;
+                }, function() {
+                    $scope.user.ratingChanges = null;
+                }
+            );
             $scope.users.push($scope.user);
             UserService.SaveUsers($scope.users);
             $state.go('home');

@@ -11,17 +11,48 @@
         $scope.selectUser = selectUser;
         $scope.showSideNav = showSideNav;
         $scope.deleteUser = deleteUser;
+        $scope.data = [];
+
+        $scope.labels = [];
+
+        $scope.datasetOverride = [
+            {
+                borderWidth: 1,
+                type: 'line',
+                lineTension: 0,
+            },
+        ];
+
+        $scope.options = {
+            scales: {
+                yAxes: [
+                    {
+                        id: 'y-axis',
+                        type: 'linear',
+                        display: true,
+                        position: 'left'
+                    }
+                ]
+            }
+          };
 
         (function() {
             $scope.users = UserService.LoadUsers();
             for (let user of $scope.users) {
-               UserService.GetValueFromCF(user).then(
+                UserService.GetValueFromCF(user).then(
                     function(result) {
                         user.result = result;
                     }, function() {
                         user.result = null;
                     }
-               );
+                );
+                UserService.GetRatingChangeFromCF(user).then(
+                    function(result) {
+                        user.ratingChanges = result;
+                    }, function() {
+                        user.ratingChanges = null;
+                    }
+                );
             }
         })();
 
@@ -43,6 +74,14 @@
         function selectUser(user, index) {
             $scope.selected = user;
             $scope.selectedIndex = index;
+            $scope.data = [];
+            $scope.labels.length = user.ratingChanges.length;
+            for (let value of user.ratingChanges) {
+                $scope.data.push({
+                    x: value.ratingUpdateTimeSeconds,
+                    y: value.newRating,
+                });
+            }
         }
 
         function showSideNav() {
