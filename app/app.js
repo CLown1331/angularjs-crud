@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('app', ['ngMaterial', 'ui.router']);
+    angular.module('app', ['ngMaterial', 'ui.router', 'chart.js']);
 
     angular.module('app').config(function($stateProvider, $locationProvider) {
         
