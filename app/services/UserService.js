@@ -16,7 +16,6 @@
             window.localStorage.setItem('users', JSON.stringify(users));
         };
         obj.GetValueFromCF = function(user) {
-
             return $q(function(resolve, reject) {
                 $http.get("https://codeforces.com/api/user.info?handles="+user.userName).then(
                     function(response) {
@@ -26,7 +25,6 @@
                     }
                 );
               });
-         
         };
         return obj;
     }]);
