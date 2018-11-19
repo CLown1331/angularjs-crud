@@ -3,7 +3,7 @@
 
     angular.module('app', ['ngMaterial', 'ui.router', 'chart.js']);
 
-    angular.module('app').config(function($stateProvider, $locationProvider) {
+    angular.module('app').config(function($stateProvider, $locationProvider, ChartJsProvider) {
         
         $stateProvider.state('home', {
           url: '/',
@@ -24,6 +24,8 @@
         });
 
         $locationProvider.html5Mode(true);
-        }
-    );
+        ChartJsProvider.setOptions('line', {
+            lineTension: 0,
+        });      
+    });
 })();
