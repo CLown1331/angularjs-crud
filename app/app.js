@@ -17,10 +17,16 @@
             controller: 'CreateController',
           });
         
-          $stateProvider.state('edit', {
+        $stateProvider.state('edit', {
             url: '/edit/:id',
             templateUrl: 'app/views/create.html',
             controller: 'EditController',
+        });
+
+        $stateProvider.state('compare', {
+            url: '/compare',
+            templateUrl: 'app/views/compare.html',
+            controller: 'CompareController',
         });
 
         $locationProvider.html5Mode(true);

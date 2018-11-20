@@ -92,7 +92,6 @@
                     x: new Date(value.ratingUpdateTimeSeconds * 1000),
                     y: value.newRating,
                 });
-                $scope.labels.push(value.ratingUpdateTimeSeconds * 1000);
             }
         }
 

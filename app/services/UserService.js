@@ -37,6 +37,17 @@
                 );
               });
         };
+        obj.GetColor = function(point) {
+            if (point >= 2600) return '#f33';
+            if (point >= 2400 && point < 2600) return '#f77';
+            if (point >= 2300 && point < 2400) return '#fb5';
+            if (point >= 2100 && point < 2300) return '#fc8';
+            if (point >= 1900 && point < 2100) return '#f8f';
+            if (point >= 1600 && point < 1900) return '#aaf';
+            if (point >= 1400 && point < 1600) return '#7db';
+            if (point >= 1200 && point < 1400) return '#7f7';
+            return '#ccc';
+        }
         return obj;
     }]);
 

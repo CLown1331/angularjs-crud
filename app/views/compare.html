@@ -1,0 +1,26 @@
+<div>
+    <md-toolbar>
+        <h3> Compare Users </h3>
+    </md-toolbar>
+    <form name="form" ng-submit="submitData()" layout="column">
+        <div style="margin: auto">
+            <div class="md-padding">
+                <md-input-container>
+                    <input type="text" ng-model="u1.userName" placeholder="User Name 1" required>
+                </md-input-container>
+                <md-input-container>
+                    <input type="text" ng-model="u2.userName" placeholder="User Name 2" required>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container style="margin: auto">
+                    <md-button type="submit" class="md-primary md-raised"> Submit </md-button>
+                </md-input-container>
+                <md-input-container style="margin: auto">
+                    <md-button class="md-primary md-raised" ui-sref="home"> Cancel </md-button>
+                </md-input-container>
+            </div>
+        </div>
+    </form>
+    <canvas id="myChart"></canvas>
+</div>
