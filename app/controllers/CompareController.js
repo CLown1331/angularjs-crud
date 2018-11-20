@@ -6,9 +6,12 @@
     function CompareController($scope, $state, UserService, $q) {
         
         $scope.submitData           = submitData;
+        let ctx = null;
+        let canvas = null;
 
         (function() {
-            
+            canvas = document.getElementById('myChart');
+            ctx = canvas.getContext("2d");
         })();
 
         function submitData() {
@@ -34,8 +37,10 @@
                         });
                         colors2.push(UserService.GetColor(value.newRating));
                     }
-                    let ctx = document.getElementById('myChart').getContext("2d");
-                    let myChart = new Chart(ctx, {
+
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                    let config = {
                         type: 'line',
                         data: {
                             datasets: [
@@ -47,7 +52,7 @@
                                     data: data1,
                                     lineTension: 0,
                                     pointBackgroundColor: colors1,
-                                    pointBorderColor: colors2,
+                                    pointBorderColor: colors1,
                                 },
                                 {
                                     label: $scope.u2.userName,
@@ -86,7 +91,9 @@
                                 }
                             }
                         }
-                    });
+                    };
+                    let myChart = new Chart(ctx, config);
+                    console.log(ctx);
                 }, function() {
 
                 }
